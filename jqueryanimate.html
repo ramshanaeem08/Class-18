@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery triggered with Animation</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="animate.css">
+	<link rel="stylesheet" href="http://raw.githubusercontent.com/daneden/animate.css/master/animate.min.css">
+</head>
+<body>
+<h1 class="animated">Animate Me!</h1>
+
+<button class="click">Click Me</button>
+
+<style>
+
+	body {
+		text-align: center;
+	}
+
+  h1 {
+    font-size: 100px;
+    text-align: center;
+    color:#3498db;
+    font-family: sans-serif;
+  }
+
+	button.click {
+		font-size: 21px;
+		cursor: pointer;
+		padding: 20px 25px;
+		color: #fff;
+		border: #27ae60 1px solid;
+		background: #2ecc71;
+	}
+
+</style>
+
+<script>
+	$(function() {
+
+		// Save the h1 element in a selector
+		var $text = $('h1');
+
+		$('button.click').on('click', function() {
+
+			// Change the class name of the animation you want to use here.
+			$text.addClass('shake');
+
+			// Code to listen for the end of the animation.
+			$text.one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function() {
+				
+				// Change the class name of the animation you want to use here.
+				$text.removeClass('shake');
+			});
+		});
+	});
+</script>
+
+
+	
+</body>
+</html>
